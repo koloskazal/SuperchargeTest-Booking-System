@@ -17,5 +17,16 @@ namespace DbConnection.db.Supercharge.Persistance.DbRepositories
                     .ToListAsync();
             return rooms;
         }
+
+        public async Task<Room> GetIfAvailableAsync(int roomId,DateTime startDate, DateTime endDate)
+        {
+            Room room =await table
+                    .Include(r => r.Bookings)
+                    .Where(r => r.RoomId == roomId)
+                    .Where(r => r.Bookings.All(b => b.StartDate >= endDate || b.EndDate <= startDate))
+                    .FirstOrDefaultAsync();
+            return room;
+        }
+
     }
 }

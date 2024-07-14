@@ -7,5 +7,6 @@ namespace DbConnection.db.Supercharge.Domain.DbRepositories
         : IGenericRepository<SuperchargeContext, Room>
     {
         Task<List<Room>> GetAvailableRoomsAsync(int hotelId, DateTime startDate, DateTime endDate);
+        Task<Room> GetIfAvailableAsync(int roomId, DateTime startDate, DateTime endDate);
     }
 }
