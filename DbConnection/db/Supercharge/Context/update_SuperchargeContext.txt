@@ -1,0 +1,13 @@
+﻿This project contains the database connection, the models and the repositories. It can
+contain db services as well, but only if they are not business logic related such as logging.
+Don't modify the scaffolded files, because they will be overwritten when you scaffold again.
+In case you have to modify the scaffolded model files, use inheritance or partial classes.
+In case it can't be done, make a note about the necessary changes in the 'Todos after the scaffolding' section.
+Scaffolding always has to be full, don't limit it to specific tables. 
+
+Todos after the scaffolding:
+- Change the inheritance of the context from DbContext to DbContectExtended
+
+Kolos-local:
+Scaffold-DbContext "Server=.\MSSQLSERVER01;Database=Supercharge;Trusted_Connection=True;TrustServerCertificate=True;" -Project DbConnection Microsoft.EntityFrameworkCore.SqlServer -f -NoOnConfiguring -OutputDir db/Supercharge/Model -ContextDir db/Supercharge/Context -Context SuperchargeContext 
+
