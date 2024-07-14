@@ -10,7 +10,7 @@ CREATE TABLE [dbo].[Visitor] (
     Phone NVARCHAR(15),
     IsActive BIT NOT NULL DEFAULT 1,
     CreatedBy INT,
-    CreatedOnUtc DATETIME NOT NULL DEFAULT(GETUTCDATE()),
+    CreatedOnUtc DATETIME NULL DEFAULT(GETUTCDATE()),
     ModifiedBy INT,
     ModifiedOnUtc DATETIME,
     

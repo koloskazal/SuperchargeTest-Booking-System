@@ -19,7 +19,7 @@ public partial class Visitor
 
     public int? CreatedBy { get; set; }
 
-    public DateTime CreatedOnUtc { get; set; }
+    public DateTime? CreatedOnUtc { get; set; }
 
     public int? ModifiedBy { get; set; }
 

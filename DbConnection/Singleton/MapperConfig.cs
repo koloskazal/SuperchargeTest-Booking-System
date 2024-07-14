@@ -49,10 +49,10 @@ namespace DbConnection.Singleton
                 .ForMember(dest => dest.ModifiedOnUtc, opt => opt.MapFrom(src => DateTime.UtcNow))
                 .AfterMap((src, dest) =>
                 {
-                    //if (!dest.CreatedOnUtc.HasValue)
-                    //{
-                    //    dest.CreatedOnUtc = DateTime.UtcNow;
-                    //}
+                    if (!dest.CreatedOnUtc.HasValue)
+                    {
+                        dest.CreatedOnUtc = DateTime.UtcNow;
+                    }
                     if (!dest.CreatedBy.HasValue)
                     {
                         dest.CreatedBy = 1;

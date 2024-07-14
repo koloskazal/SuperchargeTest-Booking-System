@@ -9,7 +9,7 @@ CREATE TABLE [dbo].[Booking] (
     StartDate DATETIME NOT NULL,
     EndDate DATETIME NOT NULL,
     CreatedBy INT,
-    CreatedOnUtc DATETIME NOT NULL DEFAULT(GETUTCDATE()),
+    CreatedOnUtc DATETIME NULL DEFAULT(GETUTCDATE()),
     ModifiedBy INT,
     ModifiedOnUtc DATETIME,
     
