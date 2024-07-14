@@ -13,7 +13,14 @@ namespace SuperchargeTestApi
 
             builder.Services.AddDbServices(builder.Configuration);
             // Add services to the container.
-            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services
+                .AddScoped<IBookingService, BookingService>()
+                .AddScoped<IHotelService, HotelService>()
+                .AddScoped<IPriceService, PriceService>()
+                .AddScoped<IRoomService, RoomService>()
+                .AddScoped<IUserService, UserService>()
+                .AddScoped<IVisitorService, VisitorService>()
+            ;
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

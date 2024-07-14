@@ -125,3 +125,12 @@ VALUES
 ('Claire', 'Redfield', 'claire.redfield@example.com', '222-222-2222', 1, 1, GETUTCDATE(), 1, GETUTCDATE()),
 ('Ada', 'Wong', 'ada.wong@example.com', '333-333-3333', 1, 1, GETUTCDATE(), 1, GETUTCDATE());
 GO
+
+INSERT INTO [Booking] (VisitorId, RoomId, StartDate, EndDate, CreatedBy, CreatedOnUtc, ModifiedBy, ModifiedOnUtc)
+VALUES 
+(5, 1, '2023-04-01', '2023-04-05', 1, GETUTCDATE(), 1, GETUTCDATE()),
+(5, 2, '2023-05-01', '2023-05-05', 1, GETUTCDATE(), 1, GETUTCDATE()),
+(5, 3, '2023-06-01', '2023-06-05', 1, GETUTCDATE(), 1, GETUTCDATE()),
+(5, 4, '2023-07-01', '2023-07-05', 1, GETUTCDATE(), 1, GETUTCDATE()),
+(5, 5, '2023-08-01', '2023-08-05', 1, GETUTCDATE(), 1, GETUTCDATE());
+GO

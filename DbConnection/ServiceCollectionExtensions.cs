@@ -25,9 +25,12 @@ namespace DbConnection
 
                 //Repositories
                 .AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>))
+                .AddScoped<IBookingRepository,BookingRepository>()
+                .AddScoped<IHotelRepository,HotelRepository>()
+                .AddScoped<IPriceRepository, PriceRepository>()
+                .AddScoped<IRoomRepository, RoomRepository>()
                 .AddScoped<IUserRepository, UserRepository>()
-                //.AddScoped<ITe, UserRepository>()
-
+                .AddScoped<IVisitorRepository, VisitorRepository>()
                 ;
 
             return services;
