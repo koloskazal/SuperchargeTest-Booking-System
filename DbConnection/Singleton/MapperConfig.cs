@@ -27,6 +27,11 @@ namespace DbConnection.Singleton
                 .ForMember(dest => dest.CreatedOnUtc, opt => opt.MapFrom(src => $"{src.CreatedOnUtc:yyyy-MM-dd}"))
                 .ForMember(dest => dest.ModifiedOnUtc, opt => opt.MapFrom(src => $"{src.ModifiedOnUtc:yyyy-MM-dd}"))
                 ;
+                cfg.CreateMap<Room, RoomResource>()
+                .ForMember(dest => dest.CreatedOnUtc, opt => opt.MapFrom(src => $"{src.CreatedOnUtc:yyyy-MM-dd}"))
+                .ForMember(dest => dest.ModifiedOnUtc, opt => opt.MapFrom(src => $"{src.ModifiedOnUtc:yyyy-MM-dd}"))
+                .ForMember(dest => dest.Bookings, opt => opt.MapFrom(src => src.Bookings == null ? new List<Booking>() : src.Bookings.ToList()))
+                ;
 
                 //Resource to model
                 cfg.CreateMap<UserResource, User>()

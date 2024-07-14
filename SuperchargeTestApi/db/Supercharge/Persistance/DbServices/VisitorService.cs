@@ -10,7 +10,7 @@ using SuperchargeTestApi.db.Supercharge.Domain.DbServices;
 
 namespace SuperchargeTestApi.db.Supercharge.Persistance.DbServices
 {
-    public  class VisitorService(IVisitorRepository visitorRepository) : IVisitorService
+    public class VisitorService(IVisitorRepository visitorRepository) : IVisitorService
     {
         public async Task<VisitorResource> AddVisitorAsync(VisitorResource createVisitorResource)
         {
@@ -77,7 +77,7 @@ namespace SuperchargeTestApi.db.Supercharge.Persistance.DbServices
             return visitor;
         }
 
-        public async Task<VisitorResource> UpdateUserAsync(string visitorId, VisitorResource updateVisitorResource)
+        public async Task<VisitorResource> UpdateVisitorAsync(string visitorId, VisitorResource updateVisitorResource)
         {
             VisitorResourceTools.CleaningVisitorResource(updateVisitorResource);
             Visitor visitor = await GetVisitorByIdAsync(visitorId)

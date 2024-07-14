@@ -66,7 +66,7 @@ namespace SuperchargeTestApi.Controllers
 
             try
             {
-                VisitorResource updatedUserResource = await visitorService.UpdateUserAsync(visitorId, updateVisitorResource);
+                VisitorResource updatedUserResource = await visitorService.UpdateVisitorAsync(visitorId, updateVisitorResource);
                 return Ok(updatedUserResource);
             }
             catch (InvalidOperationException e)
