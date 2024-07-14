@@ -4,8 +4,8 @@ using DbConnection.db.Supercharge.Model;
 
 namespace DbConnection.db.Supercharge.Persistance.DbRepositories
 {
-    public class TestTableRepository(SuperchargeContext context)
-        : GenericRepository<SuperchargeContext, TestTable>(context), ITestTableRepository
+    public class BookingRepository(SuperchargeContext context)
+        : GenericRepository<SuperchargeContext, Booking>(context), IBookingRepository
     {
 
     }

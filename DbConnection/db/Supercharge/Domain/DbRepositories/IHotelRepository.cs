@@ -3,9 +3,8 @@ using DbConnection.db.Supercharge.Model;
 
 namespace DbConnection.db.Supercharge.Domain.DbRepositories
 {
-    public interface ITestTableRepository
-        : IGenericRepository<SuperchargeContext, TestTable>
+    public interface IHotelRepository
+        : IGenericRepository<SuperchargeContext, Hotel>
     {
-
     }
 }
