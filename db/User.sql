@@ -1,4 +1,4 @@
---drop table User
+--drop table [User]
 use Supercharge;
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[User]') AND type in (N'U'))
 CREATE TABLE [User] (
@@ -15,6 +15,7 @@ CREATE TABLE [User] (
 	CONSTRAINT [PK_User_UserId] PRIMARY KEY CLUSTERED (UserId),
 	CONSTRAINT [User_CreatedBy_FK] FOREIGN KEY ([CreatedBy]) REFERENCES [dbo].[User]([UserId]),
 	CONSTRAINT [User_ModifiedBy_FK] FOREIGN KEY ([ModifiedBy]) REFERENCES [dbo].[User]([UserId]),
+	CONSTRAINT [UQ_User_Email] UNIQUE (Email)
 );
 
 go
