@@ -8,7 +8,6 @@ namespace SuperchargeTestApi.Controllers
     [ApiController]
     [Route("[controller]")]
     public class VisitorController(
-        IUserService userService, 
         IVisitorService visitorService,
         ILogger<VisitorController> logger) : ControllerBase
     {
@@ -58,16 +57,16 @@ namespace SuperchargeTestApi.Controllers
 
 
         [HttpPut("{visitorId}")]
-        public async Task<IActionResult> EditVisitor(string visitorId, [FromBody] UserResource updateUserResource)
+        public async Task<IActionResult> EditVisitor(string visitorId, [FromBody] VisitorResource updateVisitorResource)
         {
-            if (!ModelState.IsValid || visitorId != updateUserResource.UserId.ToString())
+            if (!ModelState.IsValid || visitorId != updateVisitorResource.VisitorId.ToString())
             {
                 return BadRequest(ModelState);
             }
 
             try
             {
-                UserResource updatedUserResource = await userService.UpdateUserAsync(visitorId, updateUserResource);
+                VisitorResource updatedUserResource = await visitorService.UpdateUserAsync(visitorId, updateVisitorResource);
                 return Ok(updatedUserResource);
             }
             catch (InvalidOperationException e)

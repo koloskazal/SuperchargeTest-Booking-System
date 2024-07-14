@@ -76,5 +76,32 @@ namespace SuperchargeTestApi.db.Supercharge.Persistance.DbServices
                                                                              u=>u.Bookings);
             return visitor;
         }
+
+        public async Task<VisitorResource> UpdateUserAsync(string visitorId, VisitorResource updateVisitorResource)
+        {
+            VisitorResourceTools.CleaningVisitorResource(updateVisitorResource);
+            Visitor visitor = await GetVisitorByIdAsync(visitorId)
+                ?? throw new InvalidOperationException("User doesn't exists.");
+            bool _ = await ValidateEditVisitorOperationAsync(updateVisitorResource, visitor);
+            visitor = MapperStorage.Mapper.Map(updateVisitorResource, visitor);
+            Visitor updatedVisitor = await visitorRepository.UpdateAsync(visitor);
+            VisitorResource visitorResource = MapperStorage.Mapper.Map<VisitorResource>(updatedVisitor);
+            return visitorResource;
+        }
+
+        private async Task<bool> ValidateEditVisitorOperationAsync(VisitorResource visitorResource, Visitor visitor)
+        {
+            if (visitorResource.Email.ToLowerTrim() == visitor.Email)
+            {
+                return true;
+            }
+            bool exist = await visitorRepository.ExistsAsync(u => u.Email.ToLower().Trim() == visitorResource.Email
+                                                          && u.VisitorId != visitor.VisitorId);
+            if (exist)
+            {
+                throw new EntityAlreadyExistsException("Email already exists.");
+            }
+            return true;
+        }
     }
 }

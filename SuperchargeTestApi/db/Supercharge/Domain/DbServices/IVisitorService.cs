@@ -7,5 +7,6 @@ namespace SuperchargeTestApi.db.Supercharge.Domain.DbServices
         Task<VisitorResource> AddVisitorAsync(VisitorResource createVisitorResource);
         Task<List<VisitorResource>> GetAllVisitorsAsync();
         Task<VisitorResource> GetVisitorResourceByIdAsync(string visitorId);
+        Task<VisitorResource> UpdateUserAsync(string visitorId, VisitorResource updateVisitorResource);
     }
 }
